@@ -1,0 +1,82 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.ryanconway.spaceflightnews"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
+    }
+}
+
+dependencies {
+
+    // Modules
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
+
+    // kotlin
+    implementation deps.kotlin
+
+    // Coroutines
+    implementation deps.coroutines
+
+    // Android
+    implementation deps.android
+
+    // Glide image loading
+    implementation deps.glide
+    kapt deps.glideKapt
+
+    // hilt dependency injection
+    implementation deps.hilt
+    kapt deps.hiltKapt
+
+    // lifecycle
+    implementation deps.lifecycle
+
+    // room database
+    implementation deps.room
+    kapt deps.roomKapt
+
+    // testing
+    testImplementation deps.coroutinesTest
+    testImplementation deps.testing
+    androidTestImplementation deps.coroutinesTest
+    androidTestImplementation deps.testing
+    androidTestImplementation deps.androidTesting
+}

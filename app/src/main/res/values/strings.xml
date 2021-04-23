@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Spaceflight News</string>
+    <string name="no_results">No results found</string>
+    <string name="no_internet_try_again">There is no internet connection.\nPlease try again</string>
+    <string name="loading_articles">Loading articles</string>
+    <string name="tap_to_load_more">Tap to load more</string>
+    <string name="something_went_wrong_try_again">Something went wrong. Please try again</string>
+    <string name="search_spaceflight_news">Search Spaceflight News</string>
+    <string name="article_photo">Article photo</string>
+</resources>
